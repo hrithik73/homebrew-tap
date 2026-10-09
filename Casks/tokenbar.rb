@@ -1,6 +1,6 @@
 cask "tokenbar" do
-  version "1.4"
-  sha256 "5b9490ffb8e38058f10951b55001f21b29a1b2886f1228c06809442b1c8772ce"
+  version "1.5"
+  sha256 "31c76fcb1cb3286d9b2148fd52de40d0a76bf119e47436dd4b3886112a143222"
 
   url "https://github.com/hrithik73/tokenbar/releases/download/v#{version}/Tokenbar.dmg"
   name "Tokenbar"

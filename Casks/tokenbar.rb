@@ -12,16 +12,16 @@ cask "tokenbar" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "Tokenbar.app"
-
-  # The app is ad-hoc signed (no Developer ID), so clear quarantine instead of making users click "Open Anyway".
-  postflight do
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/Tokenbar.app"]
-  end
 
   uninstall quit: "com.hritik.tokenbar"
 
   zap trash: "~/Library/Preferences/com.hritik.tokenbar.plist"
+
+  caveats <<~EOS
+    Tokenbar is not notarized (no Apple Developer ID). On first launch, open
+    System Settings → Privacy & Security and click "Open Anyway".
+  EOS
 end
